@@ -2,30 +2,20 @@ package com.stratio.cocovid.apprisk;
 import java.util.List;
 
 public class AppLocArray {
-    public String type;
-    public List<List<Double>> coordinates;
+    private List<List<Double>> appPGS;
 
-    public String getType() {
-        return type;
+    public List<List<Double>> getAppPGS() {
+        return appPGS;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public List<List<Double>> getCoordinates() {
-        return coordinates;
-    }
-
-    public void setCoordinates(List<List<Double>> coordinates) {
-        this.coordinates = coordinates;
+    public void setAppPGS(List<List<Double>> appPGS) {
+        this.appPGS = appPGS;
     }
 
     @Override
     public String toString() {
-        return "AppLocArray{" +
-                "type='" + type + '\'' +
-                ", coordinates=" + coordinates +
+        return "{" +
+                "appPGS=" + appPGS +
                 '}';
     }
 }

@@ -11,13 +11,7 @@ public class CoordinatesResource {
 
     @POST
     public Response detailCoordinates(Coordinates coordinates){
-
-        try {
-            coordinates.locArray.toCoordinates3DT();
-        } catch (Exception e) {
-            return Response.status(Response.Status.BAD_REQUEST).build();
-        }
-
+        System.out.println(coordinates);
         return Response.status(200).entity(new CoordinatesResponse(true)).build();
     }
 }

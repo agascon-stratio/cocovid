@@ -1,24 +1,18 @@
 package com.stratio.cocovid.apprisk;
 
-public class AppRisk {
-    public Integer uId;
-    public String uPw;
-    public AppLocArray appLocArray;
+import java.util.List;
 
-    public Integer getuId() {
+public class AppRisk {
+    private String uId;
+    private AppLocArray appLocArray;
+    private List<String> btArray;
+
+    public String getuId() {
         return uId;
     }
 
-    public void setuId(Integer uId) {
+    public void setuId(String uId) {
         this.uId = uId;
-    }
-
-    public String getuPw() {
-        return uPw;
-    }
-
-    public void setuPw(String uPw) {
-        this.uPw = uPw;
     }
 
     public AppLocArray getAppLocArray() {
@@ -29,12 +23,20 @@ public class AppRisk {
         this.appLocArray = appLocArray;
     }
 
+    public List<String> getBtArray() {
+        return btArray;
+    }
+
+    public void setBtArray(List<String> btArray) {
+        this.btArray = btArray;
+    }
+
     @Override
     public String toString() {
-        return "AppRisk{" +
-                "uId=" + uId +
-                ", uPw='" + uPw + '\'' +
+        return "{" +
+                "uId='" + uId + '\'' +
                 ", appLocArray=" + appLocArray +
+                ", btArray=" + btArray +
                 '}';
     }
 }

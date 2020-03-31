@@ -4,29 +4,50 @@ import javax.json.bind.annotation.JsonbProperty;
 import java.util.List;
 
 public class LocArray {
-    @JsonbProperty("3DTcoordinates")
-    public List<List<Object>> _3DTcoordinates;
+    private List<List<Integer>> tInterval;
+    private List<List<Double>> detGPS;
+    private List<List<Integer>> bssids;
+    private List<List<Integer>> cellids;
 
-    public List<Coordinates3DT> toCoordinates3DT() throws Exception {
+    public List<List<Integer>> gettInterval() {
+        return tInterval;
+    }
 
+    public void settInterval(List<List<Integer>> tInterval) {
+        this.tInterval = tInterval;
+    }
 
-        for(List<Object> rawList:_3DTcoordinates){
-            int size = rawList.size();
-            if(size != 5){
-                throw new Exception("invalid arguments");
-            }
+    public List<List<Double>> getDetGPS() {
+        return detGPS;
+    }
 
-            Integer from = Integer.valueOf(String.valueOf(rawList.get(0)));
-            Integer to = Integer.valueOf(String.valueOf(rawList.get(1)));
-            List<Number> gps = (List<Number>)rawList.get(2);
-            List<Number> bssids = (List<Number>)rawList.get(3);
-            List<Number> cellids = (List<Number>)rawList.get(4);
+    public void setDetGPS(List<List<Double>> detGPS) {
+        this.detGPS = detGPS;
+    }
 
-            System.out.println(new Coordinates3DT(from,to,gps,bssids,cellids).toString());
+    public List<List<Integer>> getBssids() {
+        return bssids;
+    }
 
-        }
+    public void setBssids(List<List<Integer>> bssids) {
+        this.bssids = bssids;
+    }
 
+    public List<List<Integer>> getCellids() {
+        return cellids;
+    }
 
-        return null;
+    public void setCellids(List<List<Integer>> cellids) {
+        this.cellids = cellids;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "tInterval=" + tInterval +
+                ", detGPS=" + detGPS +
+                ", bssids=" + bssids +
+                ", cellids=" + cellids +
+                '}';
     }
 }

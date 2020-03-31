@@ -1,24 +1,18 @@
 package com.stratio.cocovid.coordinates;
 
-public class Coordinates {
-    public Integer uId;
-    public String uPw;
-    public LocArray locArray;
+import java.util.List;
 
-    public Integer getuId() {
+public class Coordinates {
+    private String uId;
+    private LocArray locArray;
+    private List<String> btArray;
+
+    public String getuId() {
         return uId;
     }
 
-    public void setuId(Integer uId) {
+    public void setuId(String uId) {
         this.uId = uId;
-    }
-
-    public String getuPw() {
-        return uPw;
-    }
-
-    public void setuPw(String uPw) {
-        this.uPw = uPw;
     }
 
     public LocArray getLocArray() {
@@ -27,5 +21,22 @@ public class Coordinates {
 
     public void setLocArray(LocArray locArray) {
         this.locArray = locArray;
+    }
+
+    public List<String> getBtArray() {
+        return btArray;
+    }
+
+    public void setBtArray(List<String> btArray) {
+        this.btArray = btArray;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "uId='" + uId + '\'' +
+                ", locArray=" + locArray +
+                ", btArray=" + btArray +
+                '}';
     }
 }

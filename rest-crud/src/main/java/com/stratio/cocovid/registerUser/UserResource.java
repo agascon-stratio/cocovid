@@ -1,4 +1,4 @@
-package com.stratio.cocovid.apprisk;
+package com.stratio.cocovid.registerUser;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -8,16 +8,16 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Collections;
 
-@Path("/apprisk")
+@Path("/registeruser")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class AppriskResource {
-
+public class UserResource {
 
     @POST
-    public Response getApproximateRisk(AppRisk appRisk){
-        System.out.println(appRisk);
-        return Response.status(200).entity(new AppriskResponse(true)).build();
+    public Response createModify(User dto){
+        System.out.println(dto);
+        return Response.status(200).entity(new RegisterUserResponse(0,"12345679")).build();
     }
+
 
 }
