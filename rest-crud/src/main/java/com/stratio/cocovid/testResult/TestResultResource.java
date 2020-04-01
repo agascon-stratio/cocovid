@@ -15,14 +15,14 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class TestResultResource {
     @GET
-    public Response getTestResult(TestResult request){
+    public TestResultResponse getTestResult(TestResult request){
         System.out.println(request);
-        return Response.status(200).entity(new TestResultResponse(0)).build();
+        return new TestResultResponse(0);
     }
 
     @POST
-    public Response manualTestResult(ManualTestResult request){
+    public DefaultResponse manualTestResult(ManualTestResult request){
         System.out.println(request);
-        return Response.status(200).entity(new DefaultResponse(0)).build();
+        return new DefaultResponse(0);
     }
 }

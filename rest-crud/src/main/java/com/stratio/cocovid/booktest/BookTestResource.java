@@ -14,9 +14,9 @@ import java.util.Collections;
 public class BookTestResource {
 
     @POST
-    public Response postTestResult(Booktest test){
+    public BookTestResponse postTestResult(Booktest test){
         System.out.println(test);
-        return Response.status(200).entity(new BookTestResponse(0,"432435")).build();
+        return new BookTestResponse(0,"432435");
     }
 
 }

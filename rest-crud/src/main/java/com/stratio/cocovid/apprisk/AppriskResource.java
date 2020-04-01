@@ -15,9 +15,9 @@ public class AppriskResource {
 
 
     @POST
-    public Response getApproximateRisk(AppRisk appRisk){
+    public AppriskResponse getApproximateRisk(AppRisk appRisk){
         System.out.println(appRisk);
-        return Response.status(200).entity(new AppriskResponse(true)).build();
+        return new AppriskResponse(true);
     }
 
 }

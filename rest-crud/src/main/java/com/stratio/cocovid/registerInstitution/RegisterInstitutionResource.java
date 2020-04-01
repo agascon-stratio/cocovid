@@ -14,8 +14,8 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class RegisterInstitutionResource {
     @POST
-    public Response newInstitution(RegisterInstitution request){
+    public DefaultResponse newInstitution(RegisterInstitution request){
         System.out.println(request);
-        return Response.status(200).entity(new DefaultResponse(0)).build();
+        return new DefaultResponse(0);
     }
 }

@@ -15,9 +15,9 @@ import javax.ws.rs.core.Response;
 public class PasswordResetResource {
 
     @POST
-    public Response resetPassword(pwReset request){
+    public DefaultResponse resetPassword(pwReset request){
         System.out.println(request);
-        return Response.status(200).entity(new DefaultResponse(0)).build();
+        return new DefaultResponse(0);
     }
 
 }

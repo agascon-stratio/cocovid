@@ -14,9 +14,9 @@ import java.util.Collections;
 public class UserResource {
 
     @POST
-    public Response createModify(User dto){
+    public RegisterUserResponse createModify(User dto){
         System.out.println(dto);
-        return Response.status(200).entity(new RegisterUserResponse(0,"12345679")).build();
+        return new RegisterUserResponse(0,"12345679");
     }
 
 

@@ -15,8 +15,8 @@ import javax.ws.rs.core.Response;
 public class LoginResource {
 
     @POST
-    public Response loginData(LoginRequest request){
+    public DefaultResponse loginData(LoginRequest request){
         System.out.println(request);
-        return Response.status(200).entity(new DefaultResponse(0)).build();
+        return new DefaultResponse(0);
     }
 }

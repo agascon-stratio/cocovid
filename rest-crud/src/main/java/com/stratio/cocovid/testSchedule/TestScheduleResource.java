@@ -15,9 +15,9 @@ import java.util.Collections;
 public class TestScheduleResource {
 
     @GET
-    public Response testSchedule(TestSchedule request){
+    public TestScheduleResponse testSchedule(TestSchedule request){
         System.out.println(request);
-        return Response.status(200).entity(new TestScheduleResponse(0,new Sched("12345679",1310669017,"Room 101","24 Street","Madrid","80235 ", Arrays.asList(100.01123123, 0.01123123)))).build();
+        return new TestScheduleResponse(0,new Sched("12345679",1310669017,"Room 101","24 Street","Madrid","80235 ", Arrays.asList(100.01123123, 0.01123123)));
     }
 
 }

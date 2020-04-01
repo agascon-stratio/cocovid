@@ -10,8 +10,8 @@ import java.util.Collections;
 public class CoordinatesResource {
 
     @POST
-    public Response detailCoordinates(Coordinates coordinates){
+    public CoordinatesResponse detailCoordinates(Coordinates coordinates){
         System.out.println(coordinates);
-        return Response.status(200).entity(new CoordinatesResponse(true)).build();
+        return new CoordinatesResponse(true);
     }
 }
