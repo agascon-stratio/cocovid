@@ -5,6 +5,7 @@ import com.stratio.cocovid.pojo.apprisk.AppRisk;
 import com.stratio.cocovid.pojo.apprisk.AppriskResponse;
 import com.stratio.cocovid.pojo.coordinates.Coordinates;
 import com.stratio.cocovid.pojo.coordinates.CoordinatesResponse;
+import com.stratio.cocovid.pojo.deviceId.DeviceId;
 import com.stratio.cocovid.pojo.registerForward.RegisterForward;
 import com.stratio.cocovid.pojo.registerInstitution.RegisterInstitution;
 import com.stratio.cocovid.pojo.registermedical.RegisterMedical;
@@ -59,8 +60,12 @@ public class Routes extends RouteBuilder {
 
         rest("/registerforward")
             .post().type(RegisterForward.class).route()
-            .log("${body}")
-            .setBody().constant(defaultResponse)
+                .setHeader("uId").simple("${body.getuId}")
+
+                .transform().constant("INSERT INTO public.\"user\"(uid) VALUES (:?uId)")
+                .to("jdbc:postgres?useHeadersAsParameters=true")
+
+                .setBody().constant(defaultResponse)
         ;
 
         rest("/apprisk")
@@ -75,16 +80,39 @@ public class Routes extends RouteBuilder {
                 .setBody().constant(new CoordinatesResponse(true))
         ;
 
+
+        rest("/deviceid")
+                .post().type(DeviceId.class).route()
+                .setHeader("uId").simple("${body.getuId}")
+                .setHeader("dId").simple("${body.getdId}")
+
+                .transform().constant("INSERT INTO user_device(uid, did) VALUES (:?uId, :?dId)")
+                .to("jdbc:postgres?useHeadersAsParameters=true")
+
+                .transform().constant(defaultResponse)
+        ;
+
         rest("/testresultmanualforward")
             .post().type(ManualTestResult.class).route()
-                .log("${body}")
-                .setBody().constant(new DefaultResponse(0))
+                .setHeader("uId").simple("${body.getuId}")
+                .setHeader("infected").simple("${body.getInfected}")
+
+                .transform().constant("INSERT INTO test_result(uid, infected) VALUES (:?uId, :?infected)")
+                .to("jdbc:postgres?useHeadersAsParameters=true")
+
+                .transform().constant(defaultResponse)
             .endRest()
         ;
 
         rest("/testresultmendix")
             .post().type(TestResultMendix.class).route()
-                .log("${body}")
+                .setHeader("uId").simple("${body.getuId}")
+                .setHeader("mId").simple("${body.getmId}")
+                .setHeader("infected").simple("${body.getInfected}")
+
+                .transform().constant("INSERT INTO test_result(uid, mid, infected) VALUES (:?uId, :?mId, :?infected)")
+                .to("jdbc:postgres?useHeadersAsParameters=true")
+
                 .transform().constant(defaultResponse)
         ;
 

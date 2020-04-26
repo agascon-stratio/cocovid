@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "7dc0b6ef-d744-4a61-845c-aa749694af7e",
+		"name": "cocovid",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01-RegisterForward",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uId\": \"12345679\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "cocovid01.eastus.cloudapp.azure.com:8080/registerforward",
+					"host": [
+						"cocovid01",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"registerforward"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02-AppRisk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"uId\" : \"12345679\",\n\"appLocArray\" :{\n\"appPGS \": [\n[100.011, 0.021],\n[101.022, 1.012],\n[102.032, 1.012],\n[103.042, 1.012]\n]\n},\n\"btArray\" :\n[\"74738ff55367e9589aee98fffdcd187694028001\",\n\"74738ff55367e9589aee98fffdcd187694028002\",\n\"74738ff55367e9589aee98fffdcd187694028003\"\n]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "cocovid01.eastus.cloudapp.azure.com:8080/apprisk",
+					"host": [
+						"cocovid01",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"apprisk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03-Coordinates",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"uId\" : \"12345679\",\n\"locArray\" :{\n\"tInterval\":\n[\n[1310669017, 1310688888],\n[1310669017, 1310688888],\n[1310669017, 1310688888],\n[1310669017, 1310688888]\n],\n\"detGPS\":\n[\n[100.01123123, 0.01123123],\n[100.01123123, 0.01123123],\n[100.01123123, 0.01123123],\n[100.01123123, 0.01123123]\n],\n\"bssids\":\n[\n[123456789,123456789,123456789,12346789],\n[123456789,123456789,123456789,12346789],\n[123456789,123456789,123456789,12346789],\n[123456789,123456789,123456789,12346789]\n],\n\"cellids\":\n[\n[987654321, 987654321, 987654321, 987654321],\n[987654321, 987654321, 987654321, 987654321],\n[987654321, 987654321, 987654321, 987654321],\n[987654321, 987654321, 987654321, 987654321]\n]\n},\n\"btArray\" :\n[\"74738ff55367e9589aee98fffdcd187694028001\",\n\"74738ff55367e9589aee98fffdcd187694028002\",\n\"74738ff55367e9589aee98fffdcd187694028002\",\n\"74738ff55367e9589aee98fffdcd187694028002\",\n\"74738ff55367e9589aee98fffdcd187694028003\"\n]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "cocovid01.eastus.cloudapp.azure.com:8080/coordinates",
+					"host": [
+						"cocovid01",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"coordinates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04-DeviceId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uId\": \"12345679\",\n    \"dId\": \"183345632323\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "cocovid01.eastus.cloudapp.azure.com:8080/deviceid",
+					"host": [
+						"cocovid01",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"deviceid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05-TestResultManualForward",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uId\": \"12345679\",\n    \"infected\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "cocovid01.eastus.cloudapp.azure.com:8080/testresultmanualforward",
+					"host": [
+						"cocovid01",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"testresultmanualforward"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06-TestResultMendix",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"uId\" : \"12345679\",\n\"mId\" : \"56345\",\n\"infected\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "cocovid01.eastus.cloudapp.azure.com:8080/testresultmendix",
+					"host": [
+						"cocovid01",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"testresultmendix"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07-RegisterInstitution",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"iId\" : \"12345679\",\n\"iGPS\" : [100.01123123, 0.01123123]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "cocovid01.eastus.cloudapp.azure.com:8080/registerInstitution",
+					"host": [
+						"cocovid01",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"registerInstitution"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "08-RegisterMedical",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"iId\" : \"54343\",\n\"mId\" : \"24234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "cocovid01.eastus.cloudapp.azure.com:8080/registermedical",
+					"host": [
+						"cocovid01",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"registermedical"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
