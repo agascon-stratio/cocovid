@@ -95,6 +95,8 @@ public class Routes extends RouteBuilder {
         rest("/testresultmanualforward")
             .post().type(ManualTestResult.class).route()
                 .setHeader("uId").simple("${body.getuId}")
+                .setHeader("pdId").simple("${body.getpdId}")
+                .setHeader("vId").simple("${body.getvId}")
                 .setHeader("infected").simple("${body.getInfected}")
 
                 .transform().constant("INSERT INTO test_result(uid, infected) VALUES (:?uId, :?infected)")
